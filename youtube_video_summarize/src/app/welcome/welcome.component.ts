@@ -21,6 +21,7 @@ export class WelcomeComponent {
     this.loading = true;
     this.appService.submitUrl(this.youtubeUrl).subscribe(
       (response) => {
+        this.appService.setFormSubmitted();
         this.router.navigate(['/download']);
         this.loading = false;
       },
@@ -30,6 +31,8 @@ export class WelcomeComponent {
     );
     setTimeout(() => {
       this.loading = false;
+      this.appService.setFormSubmitted();
+      this.router.navigate(['/download']);
     }, 2000); // Simulated delay of 2 seconds
   }
 }

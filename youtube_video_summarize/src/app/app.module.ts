@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 import { DownloadComponent } from './download/download.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CanActivateGuard } from './guards/can-route.guard';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,11 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
-    AppService
+    AppService,
+    CanActivateGuard,
   ],
   bootstrap: [AppComponent]
 })
