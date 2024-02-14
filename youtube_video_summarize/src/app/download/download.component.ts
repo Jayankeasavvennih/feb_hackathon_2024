@@ -33,13 +33,13 @@ export class DownloadComponent {
           this.toastr.error('Failed to start download', 'Error');
         }
       )
-      .add(() => {
-        // Simulate a delay for demonstration purposes
-        setTimeout(() => {
-          this.loading = false;
-          // this.partyPapersVisible = false; // Start party papers animation after download completion
-        }, 5000); // Simulated delay of 2 seconds
-      });
+      // .add(() => {
+      //   // Simulate a delay for demonstration purposes
+      //   setTimeout(() => {
+      //     this.loading = false;
+      //     // this.partyPapersVisible = false; // Start party papers animation after download completion
+      //   }, 5000); // Simulated delay of 2 seconds
+      // });
   }
 
   getRandomTopValue(): string {

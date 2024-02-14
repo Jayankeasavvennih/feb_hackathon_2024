@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-welcome',
@@ -14,6 +15,7 @@ export class WelcomeComponent {
   constructor(
     private appService: AppService,
     private router: Router,
+    private toastr: ToastrService,
     ) { }
 
   submitForm() {
@@ -26,13 +28,15 @@ export class WelcomeComponent {
         this.loading = false;
       },
       (error) => {
+        this.loading = false;
         console.error('API Error:', error);
+        this.toastr.error('Failed to start download', 'Error');
       }
     );
-    setTimeout(() => {
-      this.loading = false;
-      this.appService.setFormSubmitted();
-      this.router.navigate(['/download']);
-    }, 2000); // Simulated delay of 2 seconds
+    // setTimeout(() => {
+    //   this.loading = false;
+    //   this.appService.setFormSubmitted();
+    //   this.router.navigate(['/download']);
+    // }, 2000); // Simulated delay of 2 seconds
   }
 }
