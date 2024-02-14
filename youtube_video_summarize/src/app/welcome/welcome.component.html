@@ -1,0 +1,20 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <h2 class="card-title text-primary mb-4">Welcome to My YouTube URL Summarizer Page</h2>
+            <!-- <h3 class="card-title text-primary mb-4"></h3> -->
+            <form (ngSubmit)="submitForm()">
+                <div class="mb-3">
+                    <label for="youtubeUrl" class="form-label">Enter YouTube URL:</label>
+                    <input type="text" id="youtubeUrl" name="youtubeUrl" class="form-control" [(ngModel)]="youtubeUrl"
+                        placeholder="Enter a YouTube URL" required>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="loading">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status"
+                        aria-hidden="true"></span>
+                    <span class="">Submit</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
