@@ -10,15 +10,16 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   private formSubmitted = false;
-  private apiUrl = 'YOUR_API_ENDPOINT';
+  private youtubeLinkUrl = 'YOUR_API_ENDPOINT';
+  private downloadUrl = 'YOUR_DOWNLOAD_API_ENDPOINT';
 
   submitUrl(url: string): Observable<any> {
     const requestBody = { youtubeUrl: url };
-    return this.http.post<any>(this.apiUrl, requestBody);
+    return this.http.post<any>(this.youtubeLinkUrl, requestBody);
   }
 
   startDownload(): Observable<any> {
-    return this.http.get<any>('YOUR_DOWNLOAD_API_ENDPOINT');
+    return this.http.get<any>(this.downloadUrl);
   }
 
   setFormSubmitted() {

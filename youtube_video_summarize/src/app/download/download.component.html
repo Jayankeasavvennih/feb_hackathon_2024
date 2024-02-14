@@ -1,13 +1,21 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card bg-light">
-        <div class="card-body text-center">
-            <h2 class="card-title text-primary mb-4">Get Your Summarized Video Here</h2>
-            <ul class="list-unstyled">
-                <li>Explore the power of summarization technology.</li>
-                <li>Get your summarized video now for a more efficient and enjoyable viewing experience!</li>
-                <li>Discover the convenience of condensed content without compromising on quality.</li>
-            </ul>
-            <button class="btn btn-primary mt-3" (click)="startDownload()">Download</button>
+<div class="download-page">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card bg-light">
+            <div class="card-body text-center">
+                <h2 class="card-title text-primary mb-4">Get Your Summarized Video Here</h2>
+                <ul class="list-unstyled">
+                    <li>Explore the power of summarization technology.</li>
+                    <li>Get your summarized video now for a more efficient and enjoyable viewing experience!</li>
+                    <li>Discover the convenience of condensed content without compromising on quality.</li>
+                </ul>
+                <button class="btn btn-primary mt-3" (click)="startDownload()">Download</button>
+            </div>
+        </div>
+    </div>
+    <div class="party-papers-container" *ngIf="partyPapersVisible">
+        <div *ngFor="let index of partyPaperIndexes; let i = index" [style.top]="getRandomTopValue()"
+            [style.transform]="'translateX(' + getTranslateXValue() + ')'" class="party-paper"
+            [ngClass]="'party-paper-' + (i % 3 + 1)">
         </div>
     </div>
 </div>
