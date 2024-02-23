@@ -16,7 +16,7 @@ export class WelcomeComponent {
     private appService: AppService,
     private router: Router,
     private toastr: ToastrService,
-    ) { }
+  ) { }
 
   submitForm() {
     // Simulate a delay for demonstration purposes

@@ -10,7 +10,7 @@ export class CanActivateGuard implements CanActivate {
   constructor(
     private appService: AppService,
     private router: Router
-  ) {}
+  ) { }
 
   canActivate(): boolean {
     if (this.appService.isFormSubmitted()) {
