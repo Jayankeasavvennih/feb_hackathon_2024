@@ -26,8 +26,9 @@ export class WelcomeComponent {
         this.appService.setFormSubmitted();
         // this.router.navigate(['/download']);
         this.loading = false;
-        let redirect: any = "http://65.2.170.186:8000/static/" + response.video_file
-        window.location.href = redirect
+        let redirect: any;
+        response.video_file ? redirect = "https://video-summarizer-backend-1.onrender.com/static/" + response.video_file : '';
+        redirect ? window.location.href = redirect : this.toastr.error('Failed to sumarrize', 'Error');;
         localStorage.setItem("responce", JSON.stringify(response))
       },
       (error) => {

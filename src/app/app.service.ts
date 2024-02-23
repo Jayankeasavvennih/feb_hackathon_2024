@@ -11,12 +11,13 @@ export class AppService {
 
   private formSubmitted = false;
   // private baseUrl = window.location.href.split('/').slice(0, 3).join('/');
-  private youtubeLinkUrl = "http://65.2.170.186:8000/process_video";
+  private devApiUrl = "https://video-summarizer-backend-1.onrender.com/process_video";
+  private mainApiUrl = "https://video-summarizer-backend.onrender.com/process_video";
   private downloadUrl = 'YOUR_DOWNLOAD_API_ENDPOINT';
 
   submitUrl(url: string): Observable<any> {
     const params = new HttpParams().set('video_url', url).append('num_frames', '5');
-    return this.http.get<any>(this.youtubeLinkUrl, { params });
+    return this.http.get<any>(this.devApiUrl, { params });
   }
 
   startDownload(): Observable<any> {
