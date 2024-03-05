@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "YoutubeVideoSummarize",
+    "version": "1.0",
+    "description": "Description of my extension",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage"
+    ],
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "assets/video-player.png",
+            "48": "assets/youtube.png",
+            "128": "assets/youtube.png"
+        }
+    }
+}
