@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class WelcomeComponent {
   youtubeUrl: string = '';
   loading: boolean = false;
+  redirect: string = "";
 
   constructor(
     private appService: AppService,
@@ -27,14 +28,14 @@ export class WelcomeComponent {
         // this.router.navigate(['/download']);
         this.loading = false;
         let redirect: any;
-        response.video_file ? redirect = "https://video-summarizer-backend-1.onrender.com/static/" + response.video_file : '';
-        redirect ? window.location.href = redirect : this.toastr.error('Failed to sumarrize', 'Error');;
-        localStorage.setItem("responce", JSON.stringify(response))
+        response.video_file ? this.redirect = "https://video-summarizer-backend-1.onrender.com/static/" + response.video_file : '';
+        // this.redirect ? window.location.href = this.redirect : this.toastr.error('Failed to sumarrize', 'Error');
+        // localStorage.setItem("responce", JSON.stringify(response))
       },
       (error) => {
         this.loading = false;
-        console.error('API Error:', error);
-        this.toastr.error('Failed to start download', 'Error');
+        console.error('API Error:', error.detail);
+        this.toastr.error(error.detail, 'Error');
       }
     );
     // setTimeout(() => {
